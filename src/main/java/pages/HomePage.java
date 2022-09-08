@@ -43,4 +43,19 @@ public class HomePage {
         clickLink("File Upload");
         return new FileUploadPage(driver);
     }
+    
+    public WYSIWYGEditorPage clickWysiwygEditor() {
+        clickLink("WYSIWYG Editor");
+        return new WYSIWYGEditorPage(driver);
+    }
+    
+    public MultipleWindowsPage clickMultipleWindows() {
+        clickLink("Multiple Windows");
+        return new MultipleWindowsPage(driver);
+    }
+    
+    public DynamicLoadingPage clickDinamycLoading() {
+        clickLink("Dynamic Loading");
+        return new DynamicLoadingPage(driver);
+    }
 }

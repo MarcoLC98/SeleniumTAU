@@ -6,6 +6,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
+import utils.WindowManager;
 
 public class BaseTests {
     private WebDriver driver;
@@ -15,6 +16,7 @@ public class BaseTests {
         System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver");
         driver = new FirefoxDriver();
         driver.get("https://the-internet.herokuapp.com/");
+        driver.manage().window().fullscreen();
         homePage = new HomePage(driver);
     }
     
@@ -26,7 +28,9 @@ public class BaseTests {
     public void tearDown() {
         driver.quit();
     }
-
+    public WindowManager getWindowManager (){
+        return new WindowManager(driver);
+    }
     /*@Test
     public void testDemo() {
         System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver");
